@@ -1,23 +1,24 @@
-/* ============================
-table of contents
-===============================
-1.  left section
-2.  Right section ==> animation
- */
 
+/* ============================
+Table of Contents
+===============================
+1. Left Section
+2. Right Section ==> Animation
+*/
 
 section.hero {
     margin-top: 3rem;
-
+    display: flex; /* Flexbox for side-by-side layout on large screens */
+    flex-wrap: nowrap; /* Prevent wrapping on large screens */
 }
 
 /* ============
- 1. left section
- =============== 
- */
-
+1. Left Section
+=============== */
 section.hero .left-section {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
 }
 
 section.hero .icon-verified {
@@ -39,7 +40,6 @@ section.hero .avatar {
     border: 1px solid orange;
     padding: 1px;
     box-shadow: 2px 2px 40px rgba(203, 200, 200, 0.586) inset;
-
 }
 
 section.hero h1.title {
@@ -54,22 +54,18 @@ section.hero p.subtitle {
     font-size: 0.9rem;
     line-height: 1.65rem;
     margin-bottom: 32px;
-
 }
-a {
-  text-decoration: none;
-  color:  var(--subtitle) !important;
-  /* cursor: default; */
 
-}
-section.hero  div.icons {
+section.hero div.icons {
     font-size: 1.3rem;
     gap: 1.5rem;
     color: var(--subtitle) !important;
-
 }
 
-
+a {
+    text-decoration: none;
+    color: var(--subtitle) !important;
+}
 
 section.hero a div.icon:hover {
     font-size: 1.4rem;
@@ -78,20 +74,39 @@ section.hero a div.icon:hover {
     color: var(--icon-hover);
 }
 
-
-
 /* ============
- 2. Right section ==> animation
- =============== 
- */
-
+2. Right Section ==> Animation
+=============== */
 section.hero .animation {
     width: 100%;
     transition: 100% 55px;
 }
 
+/* Media query for small screens */
 @media (max-width: 1250px) {
+    section.hero {
+        flex-direction: column; /* Stack sections vertically */
+        flex-wrap: wrap; /* Allow wrapping for reordering */
+    }
+
+    section.hero .left-section {
+        width: 100%; /* Full width for left section */
+        order: 1; /* Left section comes first */
+    }
+
     section.hero .animation {
-        display: none;
+        width: 100%; /* Full width for animation */
+        order: 2; /* Animation comes after left section */
+        margin-top: 2rem; /* Spacing below paragraph */
+        max-width: 300px; /* Limit animation size */
+        margin-left: auto; /* Center animation */
+        margin-right: auto; /* Center animation */
+    }
+
+    section.hero .left-section .icons {
+        width: 100%; /* Full width for icons */
+        order: 3; /* Icons come after animation */
+        margin-top: 2rem; /* Spacing below animation */
+        justify-content: center; /* Center icons horizontally */
     }
 }
