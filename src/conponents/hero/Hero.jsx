@@ -54,7 +54,7 @@ const Hero = () => {
           >
             <div className="icon icon-linkedin"></div>
           </a>
-          <a href="https://wa.me/+201555157029" target="_blank" className="icon">
+          <a href="https://wa.me/+201507135815" target="_blank" className="icon">
             <div className="icon fa-brands fa-whatsapp"></div>
           </a>
         </div>
